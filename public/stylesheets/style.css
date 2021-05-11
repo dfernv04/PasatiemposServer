@@ -1,0 +1,135 @@
+body{
+  background-color: #7adabb;
+  min-width: 1440px;
+}
+
+.fondo_izq{
+  text-align: center;
+  width: 20%;
+  float: left;
+  margin: 0 auto;
+}
+
+.fondo_centro{
+  background-color: #a3a0ec;
+  width: 40%;
+  float: center;
+  border-style: double;
+  margin: 0 auto;
+}
+
+.fondo_derecha{
+  background-color: #67f1f1;
+  text-align: center;
+  width: 25%;
+  float: right;
+  border-style: double;
+  margin: 0 auto;
+}
+
+.blanco{
+  background-color: white;
+  border-color: gray;
+  text-align: center;
+  text-transform: uppercase;
+  color: black;
+  width: 35px;
+  height: 35px;
+  margin:0px;
+  padding:0px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  border: "1";
+}
+
+.nums{
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.instructions {
+  background-color: #67f1f1;
+  margin: 0 auto;
+  float: left;
+  text-align: justify;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.fondo_pistas {
+  background-color: #f5cc00;
+  color: black;
+  margin-top: 30;
+  height: 100;
+  width: 80%;
+  float: center;
+  border-style: double;
+}
+
+.menu {
+  vertical-align: top;
+  float: center;
+  margin: 0 auto;
+}
+
+.parte_inf {
+  vertical-align: bottom;
+}
+
+.text{
+  text-align: left;
+}
+
+#header {
+  margin:auto;
+  width:500px;
+  float: center;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+ul, ol {
+  list-style:none;
+}
+
+.nav > li {
+  float: center;
+  width: 300px;
+}
+
+.nav li a {
+  background-color:#25f8f8;
+  color: black;
+  text-decoration:none;
+  padding:10px 12px;
+  display:block;
+  cursor: pointer;
+  font-weight: bold;
+  border-style: ridge;
+}
+
+.nav li a:hover {
+  background-color:#434343;
+}
+
+.nav li ul {
+  display:none;
+  position:absolute;
+  min-width:140px;
+}
+
+.nav li:hover > ul {
+  display:block;
+}
+
+.nav li ul li {
+  position:relative;
+  float: right;
+}
+
+.nav li ul li ul {
+  right:-140px;
+  top:0px;
+}
