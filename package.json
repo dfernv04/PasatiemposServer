@@ -6,9 +6,12 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "connect-livereload": "^0.6.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "livereload": "^0.9.3",
+    "liveserver": "^0.1.20",
     "morgan": "~1.9.1"
   }
 }
