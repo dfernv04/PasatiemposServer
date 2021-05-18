@@ -1,0 +1,22 @@
+{
+
+  "opcion1": [
+    "clan",
+    "pena",
+    "remato",
+    "torero"
+  ],
+
+  "opcion2": [
+    "hola",
+    "halo",
+    "adiosi",
+    "eyeyey"
+  ],
+  "opcion3": [
+    "ques",
+    "uyas",
+    "mañana",
+    "pasado"
+  ]
+}

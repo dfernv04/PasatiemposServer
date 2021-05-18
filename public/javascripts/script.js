@@ -1,15 +1,19 @@
 var dictionary;
 var palabras = [];
 var keyWords = ["clan", "pena", "remato", "torero"];
+var option = -1;
 var index = [0, 5, 6, 11];
 var numTracks = 3;
 
 function start() {
+    var num = window.location.search;
+    var number = num.replace('?', '');
+    option = number;
     load();
     instructions();
     tracksInfo();
     loadDictionary();
-    //createTable();
+    loadJSON();
 }
 
 function load() {
@@ -31,7 +35,37 @@ function instructions() {
 }
 
 function tracksInfo() {
+    switch (option) {
+        case "0":
+            tracksInfoZero();
+            break;
+        case "1":
+            tracksInfoOne();
+            break;
+        case "2":
+            tracksInfoTwo();
+            break;
+        default:
+            alert("Opcion incorrecta");
+            break;
+
+    }
+}
+
+function tracksInfoZero() {
     var text = "1. Familia en escocia.<br>2. Tristeza y dolor por algo.<br>3. Termino"
+        +" algo definitivamente.<br>4. El que torea.";
+    document.getElementById("tracks").innerHTML = text;
+}
+
+function tracksInfoOne() {
+    var text = "1..<br>2. Tristeza y dolor por algo.<br>3. Termino"
+        +" algo definitivamente.<br>4. El que torea.";
+    document.getElementById("tracks").innerHTML = text;
+}
+
+function tracksInfoTwo() {
+    var text = "1. Familia en escocia.<br>2. To.<br>3. Termino"
         +" algo definitivamente.<br>4. El que torea.";
     document.getElementById("tracks").innerHTML = text;
 }
@@ -264,7 +298,6 @@ function obtainWords(map) {
     }
     return trackString;
 }
-
 function checkRep(string) {
     var array = string.split("");
     var map = new Map();
@@ -298,5 +331,26 @@ function checkWordRepet(word, num, letter) {
 
 function focusear(id) {
     document.getElementById(""+id).getElementsByTagName("input")[0].focus();
+}
+
+function selectOption(num) {
+    window.location = "pasatiempos.html?"+num;
+}
+
+function loadJSON() {
+    console.log("Entro en la funcion");
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('GET', '../soluciones.json', true);
+
+    xhttp.onreadystatechange = function() {
+        if(this.readyState==4 && this.status==200) {
+            console.log(this.responseText)
+            console.log(xhttp);
+            let datos = JSON.parse(this.responseText);
+            console.log("datos");
+            console.log(datos);
+        }
+    }
+    xhttp.send();
 }
 //background-color: #fc636b; background-color: #e5f173;
