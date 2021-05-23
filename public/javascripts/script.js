@@ -89,8 +89,8 @@ function tracksInfoZero() {
 }
 
 function tracksInfoOne() {
-    var text = "1..<br>2. Tristeza y dolor por algo.<br>3. Termino"
-        +" algo definitivamente.<br>4. El que torea.";
+    var text = "1. Bastón de madera con el que se juega al béisbol.<br>2. Segunda letra del alfabeto griego.<br>" +
+        "3. Tiempo que pasó.<br>4. Poner el pie sobre algo tiempo atras.";
     document.getElementById("tracks").innerHTML = text;
 }
 

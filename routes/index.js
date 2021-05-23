@@ -3,7 +3,7 @@ var router = express.Router();
 
 const options = {
    keyWords1: ["clan", "pena", "remato", "torero"],
-   keyWords2: ["clan", "pena", "remato", "torero"],
+   keyWords2: ["bate", "beta", "pasado", "pisado"],
    keyWords3: ["clan", "pena", "remato", "torero"],
 }
 
@@ -96,8 +96,14 @@ function checkWordCompare(word1, word2, mode) {
   word1 = removeAccents(word1);
   word2 = removeAccents(word2);
   for(let i=0; i<word1.length; i++) {
-    if(!word2.includes(word1[i])) {
-      different ++;
+    if(mode==0) {
+      if(!word2.includes(word1[i])) {
+        different ++;
+      }
+    }else{
+      if(word2[i]!=word1[i]) {
+        different ++;
+      }
     }
   }
   if(mode==1) {
