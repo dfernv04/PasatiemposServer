@@ -1,10 +1,7 @@
 var dictionary;
 var palabras = [];
-var keyWords = ["clan", "pena", "remato", "torero"];
 var option = -1;
-var index = [0, 5, 6, 11];
 var numTracks = 3;
-
 
 function start() {
     var num = window.location.search;
@@ -238,12 +235,12 @@ async function resolve() {
         isValid = await sendWordsServer(answers);
         if(isValid) {
             if (checkWordsDictionary(answers)) {
-                alert("Es correcto!");
+                alert("El pasatiempos es correcto!");
             } else {
                 alert("Algunas de las palabras no existen.");
             }
         }else{
-            alert("Eror");
+            alert("El pasatiempos es incorrecto, alguna palabra no es correcta");
         }
     }else{
         alert("Complete el pasatiempos para resolverlo.");
