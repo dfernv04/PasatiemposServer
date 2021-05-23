@@ -5,6 +5,7 @@ var option = -1;
 var index = [0, 5, 6, 11];
 var numTracks = 3;
 
+
 function start() {
     var num = window.location.search;
     var number = num.replace('?', '');
@@ -13,12 +14,44 @@ function start() {
     instructions();
     tracksInfo();
     loadDictionary();
-    loadJSON();
 }
 
 function load() {
+    switch (option) {
+        case "0":
+            loadOne();
+            break;
+        case "1":
+            loadTwo();
+            break;
+        case "2":
+            loadThree();
+            break;
+        default:
+            alert("Opcion incorrecta");
+            break;
+    }
+}
+
+function loadOne() {
     for(let i=1; i<61; i++){
         document.getElementById(""+i).getElementsByTagName("input")[0].value = localStorage.getItem(""+i);
+    }
+}
+
+function loadTwo() {
+    var htmlElement = 1;
+    for(let i=62; i<122; i++){
+        document.getElementById(""+htmlElement).getElementsByTagName("input")[0].value = localStorage.getItem(""+i);
+        htmlElement += 1;
+    }
+}
+
+function loadThree() {
+    var htmlElement = 1;
+    for(let i=123; i<183; i++){
+        document.getElementById(""+htmlElement).getElementsByTagName("input")[0].value = localStorage.getItem(""+i);
+        htmlElement += 1;
     }
 }
 
@@ -88,6 +121,23 @@ function clean() {
 }
 
 function save() {
+    switch (option) {
+        case "0":
+            saveOptionOne();
+            break;
+        case "1":
+            saveOptionTwo();
+            break;
+        case "2":
+            saveOptionThree();
+            break;
+        default:
+            alert("Opcion incorrecta");
+            break;
+    }
+}
+
+function saveOptionOne() {
     var sobreescribir = false;
     if(localStorage.getItem(""+1)!=null) {
         sobreescribir = true;
@@ -107,9 +157,72 @@ function save() {
     }
 }
 
+function saveOptionTwo() {
+    var sobreescribir = false;
+    if(localStorage.getItem(""+62)!=null) {
+        sobreescribir = true;
+    }
+    var htmlElement = 1;
+    if(sobreescribir) {
+        if(confirm("¿Desea sobreescribir la solución guardada de forma local?")){
+            for(let i=62; i<122; i++){
+                localStorage.setItem(""+i, document.getElementById(""+htmlElement).getElementsByTagName("input")[0].value);
+                htmlElement += 1;
+            }
+        }
+    }else{
+        if(confirm("¿Desea guardar esta solucion de forma local?")){
+            for(let i=62; i<122; i++){
+                localStorage.setItem(""+i, document.getElementById(""+htmlElement).getElementsByTagName("input")[0].value);
+                htmlElement += 1;
+            }
+        }
+    }
+}
+
+function saveOptionThree() {
+    var sobreescribir = false;
+    if(localStorage.getItem(""+123)!=null) {
+        sobreescribir = true;
+    }
+    var htmlElement = 1;
+    if(sobreescribir) {
+        if(confirm("¿Desea sobreescribir la solución guardada de forma local?")){
+            for(let i=123; i<183; i++){
+                localStorage.setItem(""+i, document.getElementById(""+htmlElement).getElementsByTagName("input")[0].value);
+                htmlElement += 1;
+            }
+        }
+    }else{
+        if(confirm("¿Desea guardar esta solucion de forma local?")){
+            for(let i=123; i<183; i++){
+                localStorage.setItem(""+i, document.getElementById(""+htmlElement).getElementsByTagName("input")[0].value);
+                htmlElement += 1;
+            }
+        }
+    }
+}
+
 function cleanMemory() {
-    for(let i=1; i<61; i++){
-        localStorage.removeItem(""+i);
+    switch (option) {
+        case "0":
+            for(let i=1; i<61; i++){
+                localStorage.removeItem(""+i);
+            }
+            break;
+        case "1":
+            for(let i=62; i<122; i++){
+                localStorage.removeItem(""+i);
+            }
+            break;
+        case "2":
+            for(let i=123; i<183; i++){
+                localStorage.removeItem(""+i);
+            }
+            break;
+        default:
+            alert("Opcion incorrecta");
+            break;
     }
 }
 
@@ -117,26 +230,40 @@ function prepareDictionary(dictionary) {
     palabras = dictionary.split("\n");
 }
 
-function resolve() {
-    console.log(palabras);
+async function resolve() {
     var answers = [];
+    var isValid = false;
     if(checkComplete()){
         answers = pickUpWords();
-        console.log(answers);
-        if(checkKeyords(answers)) {
-            if(checkWords(answers)){
-                if(checkWordsDictionary(answers)) {
-                    alert("Es correcto!");
-                }else{
-                    alert("Algunas de las palabras no existen.");
-                }
-            }else{
-                alert("Pasatiempos incorrecto\nSiga las reglas!");
+        isValid = await sendWordsServer(answers);
+        if(isValid) {
+            if (checkWordsDictionary(answers)) {
+                alert("Es correcto!");
+            } else {
+                alert("Algunas de las palabras no existen.");
             }
+        }else{
+            alert("Eror");
         }
     }else{
         alert("Complete el pasatiempos para resolverlo.");
     }
+}
+
+async function sendWordsServer(array) {
+    try {
+        return 'true' === await connectServer(array);
+    } catch (Error) {
+        console.error("No se puede conectar con el servidor");
+    }
+}
+
+async function connectServer(array) {
+    return $.post(
+        "http://127.0.0.1:3000/pasatiempos",
+        {soluciones: array.toString(),
+        opcion: option}
+    );
 }
 
 function checkComplete() {
@@ -174,16 +301,6 @@ function pickUpWords() {
     return answers;
 }
 
-function checkKeyords(answers) {
-    for(let i=0; i<index.length; i++) {
-        if(answers[index[i]] != keyWords[i]){
-            alert("La palabra clave: "+answers[index[i]]+" es incorrecto.");
-            return false;
-        }
-    }
-    return true;
-}
-
 function checkWordsDictionary(answers) {
     for(let i=1; i<answers.length-1; i++) {
         if(i!=5 && i!=6)
@@ -193,72 +310,6 @@ function checkWordsDictionary(answers) {
             }
     }
     return true;
-}
-
-function checkWords(answers) {
-    var mode = 1;
-    var i = 0;
-    var result = true;
-    while(i<5 && result) {
-        if(mode%2==0) {
-            result = checkWordCompare(answers[i], answers[i+1], 0);
-        }else{
-            result = checkWordCompare(answers[i], answers[i+1], 1);
-        }
-        i++;
-        mode++;
-    }
-    i++;
-    mode = 1;
-    while(i<11 && result) {
-        if(mode%2==0) {
-            result = checkWordCompare(answers[i], answers[i+1], 0);
-        }else{
-            result = checkWordCompare(answers[i], answers[i+1], 1);
-        }
-        i++;
-        mode++;
-    }
-    return result;
-}
-
-function checkWordCompare(word1, word2, mode) {
-    var different = 0;
-    var order;
-    word1 = removeAccents(word1);
-    word2 = removeAccents(word2);
-    for(let i=0; i<word1.length; i++) {
-        if(!word2.includes(word1[i])) {
-            different ++;
-        }
-    }
-    if(mode==1) {
-        order = checkOrder(word1, word2);
-    }
-
-    if(mode==1 && different==1 && order) {
-        return true;
-    }else if(mode==0 && different==0) {
-        return true;
-    }else{
-        return false;
-    }
-}
-
-function checkOrder(word1, word2) {
-    var dif = 0;
-    for (let i=0; i<word2.length; i++) {
-        if(word1[i]!=word2[i]) {
-            dif ++;
-        }
-    }
-
-    return dif==1;
-
-}
-
-const removeAccents = (str) => {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
 function track() {
@@ -298,6 +349,7 @@ function obtainWords(map) {
     }
     return trackString;
 }
+
 function checkRep(string) {
     var array = string.split("");
     var map = new Map();
@@ -337,20 +389,5 @@ function selectOption(num) {
     window.location = "pasatiempos.html?"+num;
 }
 
-function loadJSON() {
-    console.log("Entro en la funcion");
-    const xhttp = new XMLHttpRequest();
-    xhttp.open('GET', '../soluciones.json', true);
 
-    xhttp.onreadystatechange = function() {
-        if(this.readyState==4 && this.status==200) {
-            console.log(this.responseText)
-            console.log(xhttp);
-            let datos = JSON.parse(this.responseText);
-            console.log("datos");
-            console.log(datos);
-        }
-    }
-    xhttp.send();
-}
 //background-color: #fc636b; background-color: #e5f173;

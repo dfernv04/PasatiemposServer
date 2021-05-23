@@ -25,10 +25,11 @@ app.use(connectLivereload());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-/* Aqui se hace todo*/
+/* Aqui se hace todo */
 console.log("Servidor en puerto: 3000");
 
 // error handler
+
 app.use((error, req, res, next) => {
     if (!error.statusCode) error.statusCode = 500;
 
