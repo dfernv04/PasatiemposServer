@@ -4,7 +4,7 @@ var router = express.Router();
 const options = {
    keyWords1: ["clan", "pena", "remato", "torero"],
    keyWords2: ["bate", "beta", "pasado", "pisado"],
-   keyWords3: ["clan", "pena", "remato", "torero"],
+   keyWords3: ["tola", "oval", "bolido", "pálido"],
 }
 
 var index = [0, 5, 6, 11];

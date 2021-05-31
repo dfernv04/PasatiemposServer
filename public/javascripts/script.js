@@ -95,8 +95,8 @@ function tracksInfoOne() {
 }
 
 function tracksInfoTwo() {
-    var text = "1. Familia en escocia.<br>2. To.<br>3. Termino"
-        +" algo definitivamente.<br>4. El que torea.";
+    var text = "1. Tumba en forma de montículo, perteneciente a los antiguos aborígenes.<br>2. De forma de óvalo.<br>" +
+        "3. Coche rapido.<br>4. Que tiene la piel del rostro más blanca de lo normal.";
     document.getElementById("tracks").innerHTML = text;
 }
 
@@ -225,6 +225,11 @@ function cleanMemory() {
 
 function prepareDictionary(dictionary) {
     palabras = dictionary.split("\n");
+    palabras.push("ídolos");
+    palabras.push("ídolas");
+    palabras.push("idolos");
+    palabras.push("idolas");
+
 }
 
 async function resolve() {
