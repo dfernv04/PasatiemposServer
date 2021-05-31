@@ -6,7 +6,8 @@ por ejemplo la resolución del mismo.
 
 ## Comenzando 🚀
 
-Primero deberás clonar el proyecto desde [pasatiempos](https://github.com/dfernv04/PasatiemposServer/) o descomprimir el zip.
+Primero deberás clonar el proyecto desde [pasatiempos](https://github.com/dfernv04/PasatiemposServer/) o descomprimir el zip donde se encuentra
+el archivo base64.
 
 
 ### Pre-requisitos 📋
@@ -23,33 +24,22 @@ Una vez realizados los pasos anteriores deberás abrir una terminal, dirigirte a
 npm install
 ```
 
-_Y repite_
+Después deberás usar el siguiente comando:
 
 ```
 npm install express
 ```
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
 ## Ejecutando las pruebas ⚙️
 
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
+Por último, para iniciar la aplicación deberá ejecutar el siguiente comando:
 
 ```
-Da un ejemplo
+npm start
 ```
+Una vez ejecutado este comando debería de aparecer lo siguiente en su terminal:
+![image](https://user-images.githubusercontent.com/47598224/120245902-feaeed00-c26e-11eb-8e44-abe98636c14c.png)
 
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
 
 ## Construido con 🛠️
 
