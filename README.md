@@ -1,36 +1,32 @@
-# Título del Proyecto
+# Pasatiempos en cascada: Lado del servidor
 
-_Acá va un párrafo que describa lo que es el proyecto_
+Ampliación de la practica pasatiempos en cascada donde se pedia realizar una aplicación que mostrará el clásico juego del pasatiempo en cascada
+y donde se diera la oportunidad la usuario de resolverlo. En esta ampliación se pedía incorporar ciertos aspectos en el lado del servidor como 
+por ejemplo la resolución del mismo.
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
-
-Mira **Deployment** para conocer como desplegar el proyecto.
+Primero deberás clonar el proyecto desde [pasatiempos](https://github.com/dfernv04/PasatiemposServer/) o descomprimir el zip.
 
 
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
-
 ```
-Da un ejemplo
+Para poder ejecutar la practica necesitarás tener instalado el node.js
 ```
 
 ### Instalación 🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
-
-_Dí cómo será ese paso_
+Una vez realizados los pasos anteriores deberás abrir una terminal, dirigirte al directorio donde tengas el pasatiempos y ejecutar los siguiente comandos.
 
 ```
-Da un ejemplo
+npm install
 ```
 
 _Y repite_
 
 ```
-hasta finalizar
+npm install express
 ```
 
 _Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
