@@ -44,6 +44,7 @@ Una vez ejecutado este comando debería de aparecer lo siguiente en su terminal:
 ## Despliegue 📦
 
 A continuación le mostraré un ejemplos de pasatiempos para cada uno de los puzzles propuestos:
+
 ![image](https://user-images.githubusercontent.com/47598224/120245995-3b7ae400-c26f-11eb-93c5-3a7cc52c3176.png)
 ![image](https://user-images.githubusercontent.com/47598224/120246019-46357900-c26f-11eb-8338-40a75939a141.png)
 ![image](https://user-images.githubusercontent.com/47598224/120246031-4f264a80-c26f-11eb-9829-293e57ebfda1.png)
