@@ -51,10 +51,11 @@ A continuación le mostraré un ejemplos de pasatiempos para cada uno de los puz
 
 ## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
+Las herramientas utilizadas para realizar el proyecto son las siguientes:
 
 * [Node.js](https://nodejs.org/es/)
 * [Express](https://expressjs.com/es/)
+* [WebStorm](https://www.jetbrains.com/es-es/webstorm/) - IDE
 
 
 ## Autores ✒️
