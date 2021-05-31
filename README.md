@@ -1,3 +1,9 @@
+# Título del Proyecto
+
+_Acá va un párrafo que describa lo que es el proyecto_
+
+## Comenzando 🚀
+
 La tecnología usada para la realización de esta práctica en el lado de servidor ha sido node.js + express.
 
 Para que la práctica funcione correctamente necesitas poner en consola los siguientes comandos:
