@@ -47,7 +47,7 @@ A continuación le mostraré un ejemplos de pasatiempos para cada uno de los puz
 
 ![image](https://user-images.githubusercontent.com/47598224/120245995-3b7ae400-c26f-11eb-93c5-3a7cc52c3176.png)
 ![image](https://user-images.githubusercontent.com/47598224/120246019-46357900-c26f-11eb-8338-40a75939a141.png)
-![image](https://user-images.githubusercontent.com/47598224/120246031-4f264a80-c26f-11eb-9829-293e57ebfda1.png)
+![image](![image](https://user-images.githubusercontent.com/47598224/120246299-1a66c300-c270-11eb-9335-7e81d91870cd.png))
 
 
 ## Construido con 🛠️
